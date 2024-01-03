@@ -1,0 +1,39 @@
+---
+import TitleAdmin from "../components/TitleAdmin.astro";
+import Header from "../components/Header.astro";
+import Sidebar from "../components/Sidebar.astro";
+import Footer from "../components/Footer.astro";
+import miFavicon from "../assets/img/foto-mia-favicon.png";
+import "../build/css/styles.css";
+export interface Props {
+  title: string;
+  classNamePage: string;
+}
+const { title, classNamePage } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!--<link rel="icon" type="favicon/x-icon" href="/favicon.png" />-->
+    <link rel="icon" type="favicon/x-icon" href={miFavicon.src} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta
+      name="description"
+      content="Soy Jose Ramón, programador web que vive en Valencia (España). Ofrezco servicios de programación y diseño web responsive. Programo con html, javascript y css, pero también con frameworks modernos como Angular o React. Tanto frontend como Backend (FullStack), fundamentalmente con Nodejs, pudiendo optar por cliente y servidor integrados o separados (API Rest, Graphql). Despliegue, mantenimiento, mejoras (refactorización) y escalabilidad de las aplicaciones cuando se requiere. Guardado seguro y respaldo de la información en Bases de Datos locales (por ejemplo SQLIte), o en linea como MongoDB, MySQL, PostgreSQL. Testing continuo de las aplicaciones y optimizaciones para el buen indexado de los motores de búsqueda (SEO). PWA. Servicios económicos"
+    />
+  </head>
+  <body class={classNamePage}>
+    <TitleAdmin />
+    <Header classNamePage={classNamePage} />
+    <Sidebar classNamePage={classNamePage} />
+
+    <slot />
+    <Footer />
+    <script>
+      import "../js/main";
+    </script>
+  </body>
+</html>

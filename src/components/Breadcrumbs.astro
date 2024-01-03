@@ -1,0 +1,29 @@
+---
+import iconoUp from "../assets/img/ti-cornerLeftUp.svg";
+export interface Props {
+  nombrePaginaPadre: string;
+  hrefPadre: string;
+  nombrePaginaHija: string;
+}
+const {
+  nombrePaginaPadre,
+  hrefPadre = "javascript:void(0)",
+  nombrePaginaHija = "",
+} = Astro.props;
+const classLink = hrefPadre === "javascript:void(0)" ? "a-disabled" : null;
+const flecha = nombrePaginaHija.length ? ">" : "";
+---
+
+<section class="breadcrumbs">
+  <div class="breadcrumbs-movil">
+    <a href={hrefPadre} class={classLink}
+      ><img id="up-icon" src={iconoUp.src} alt="icono subir directorio" /></a
+    >
+     &nbsp;&nbsp;{nombrePaginaHija}
+  </div>
+  <p class="breadcrumbs-normal">
+    <a href={hrefPadre} class={classLink}>{nombrePaginaPadre}</a>&nbsp;&nbsp;{
+      flecha
+    }&nbsp;&nbsp;<span id="breadcrumbs-hijo1">{nombrePaginaHija}</span>
+  </p>
+</section>

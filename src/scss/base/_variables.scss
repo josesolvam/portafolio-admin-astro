@@ -1,0 +1,46 @@
+/**  Variables **/
+:root {
+  --amarillo-claro: #e8dcbe;
+  --amarillo-oscuro: #e08709;
+  --amarillo: #ffc107;
+  --azul: #0040ff;
+  --blanco: #ffffff;
+  --color-twitter: #00a5e5;
+  --danger-contrast: #ffffff;
+  --danger: #eb445a;
+  --gris: #757575;
+  --grisClaro: #dfe9f3;
+  --grisMuyClaro: #f7f7f7;
+  --grisOscuro: #333333;
+  --indigo-oscuro: #485984;
+  --indigo: #4561a8;
+  --negro: #000000;
+  --primario-contrast: #000000;
+  --primario-tint: #4cc0ec;
+  --primario: #00a5e5;
+
+  --rojo-constrast: #000000;
+  --rojo-tint: #ff6985;
+  --rojo: #ff2951;
+  --secundario: #86d3ff;
+  --success-contrast: #000000;
+  --success: #2dd36f;
+  --verde-constrast: #000000;
+  --verde-tint: #9bc84c;
+  --verde: #71b100;
+  /*colores*/
+
+  /*tipografia*/
+  --fuente_principal: "Lato", sans-serif;
+  --fuente_grandstander: "Grandstander", cursive;
+  /*300 ->	Light*/
+  /*400 ->	Normal (Regular)*/
+  /*700 ->	Bold*/
+
+  /*Tamaños de Media Queries*/
+  /*Pantallas pequeñas (_sm, tablets _en vertical) ≥ 576px. Pantallas medianas (md, para tablets en horizontal) ≥ 768px. Pantallas grandes (lg, tamaño escritorio) ≥ 992px. Pantallas extra grandes (xl, escritorio grande) ≥ 1200px.*/
+  --telefono: 480px;
+  --tablet: 768px;
+  --desktop: 992px;
+  --desktopXL: 1200px;
+}

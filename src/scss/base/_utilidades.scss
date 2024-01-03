@@ -1,0 +1,30 @@
+/** Utilidades **/
+.w-sm-100 {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .w-sm-100 {
+    width: auto;
+  }
+}
+.w-100 {
+  width: 100%;
+}
+.flex {
+  display: flex;
+}
+.flex-end {
+  justify-content: flex-end;
+}
+.block-scroll {
+  overflow: hidden;
+}
+.max-w-md {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.a-disabled {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+}

@@ -1,0 +1,59 @@
+---
+import iconoHamburguesa from "../assets/img/ti-menu2.svg";
+import iconoEditar from "../assets/img/ti-edit.svg";
+import iconoEliminar from "../assets/img/ti-trash.svg";
+import { URLPARAMS } from "../js/constantes/consts";
+---
+
+<section id="zona-administracion" class="contenedor sombra zona-administracion">
+  <h2>Administración de proyectos</h2>
+  <div class="nuevo-proyecto-btn">
+    <a
+      href=`/admin/proyecto/#/${URLPARAMS.NUEVO_PROYECTO}`
+      class="boton boton-verde">Nuevo&nbsp;Proyecto</a
+    >
+  </div>
+  <h3>Proyectos</h3>
+  <div id="table-proyectos-admin" class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>ID</th>
+          <th>Titulo</th>
+          <th>Descripcion</th>
+          <th>Imagen</th>
+        </tr>
+      </thead>
+      <tbody id="contenedor-proyectos-admin">
+        <!--<tr class="entrada-proyectos">-->
+        <!--  <td class="acciones">-->
+        <!--    <a href="/admin/proyecto/#/1" class="boton boton-primario w-100">-->
+        <!--      <img src={iconoEditar.src} alt="icono editar" />-->
+        <!--      &lt;!&ndash; EDITAR&ndash;&gt;-->
+        <!--    </a>-->
+        <!--    <a href="javascript:void(0)" class="boton boton-rojo w-100">-->
+        <!--      <img src={iconoEliminar.src} alt="icono eliminar" />-->
+        <!--      &lt;!&ndash; ELIMINAR&ndash;&gt;-->
+        <!--    </a>-->
+        <!--  </td>-->
+        <!--  <td>1</td>-->
+        <!--  <td>Ecomerce-put</td>-->
+        <!--  <td class="descripcion-proyecto">-->
+        <!--    Mauris at pretium urna. Proin hendrerit tellus a viverra dapibus.-->
+        <!--    Nam ligula magna, dapibus nec ipsum luctus, pharetra mollis massa.-->
+        <!--    Morbi et quam ex.-->
+        <!--  </td>-->
+        <!--  <td class="imagen-proyecto">-->
+        <!--    <img-->
+        <!--      src="/img/pr.png"-->
+        <!--      alt="imagen administrador tareas"-->
+        <!--      loading="lazy"-->
+        <!--    />-->
+        <!--  </td>-->
+        <!--</tr>-->
+      </tbody>
+    </table>
+  </div>
+  <div id="error-proyectos-admin" class="errores"></div>
+</section>

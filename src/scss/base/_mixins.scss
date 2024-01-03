@@ -1,0 +1,18 @@
+@mixin botonMixin($bgColor, $color, $bgHover, $padding: 1rem 3rem) {
+  padding: $padding;
+  font-size: 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  width: 90%;
+  text-align: center;
+  border: none;
+  overflow: hidden;
+  transition: background-color 0.5s;
+  background-color: $bgColor;
+  color: $color;
+  &:hover {
+    background-color: $bgHover;
+  }
+}

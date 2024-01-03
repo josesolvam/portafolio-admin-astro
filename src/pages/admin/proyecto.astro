@@ -1,0 +1,24 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import ZonaAdministracion from "../../components/AdministracionSection.astro";
+import FormularioProyecto from "../../components/FormularioProyecto.astro";
+---
+
+<Layout
+  title="Jose Ramón | Programador Web"
+  classNamePage="admin-proyecto-page"
+>
+  <Breadcrumbs
+    nombrePaginaPadre="Admin"
+    hrefPadre="/admin"
+    nombrePaginaHija="Proyecto"
+  />
+  <main>
+    <!--TODO: falta loading-->
+    <FormularioProyecto />
+  </main>
+  <script>
+    import "../../js/admin-proyecto";
+  </script>
+</Layout>

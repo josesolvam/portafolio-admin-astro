@@ -1,0 +1,39 @@
+---
+import iconoHamburguesa from "../assets/img/ti-menu2.svg";
+export interface Props {
+  classNamePage: string;
+}
+
+const { classNamePage } = Astro.props;
+---
+
+<header>
+  <div id="menu-movil" class="menu-movil">
+    <img
+      id="menu-icon"
+      src={iconoHamburguesa.src}
+      alt="icono menu responsive"
+    />
+  </div>
+  <nav id="navegacion-principal" class="navegacion-principal">
+    <a class={classNamePage === "index-page" ? "seleccionado" : null} href="javascript:void(0)"
+      >Inicio</a
+    >
+    <a
+      class={classNamePage === "sobre-mi-page" ? "seleccionado" : null}
+      href="javascript:void(0)">Sobre Mi</a
+    >
+    <a
+      class={classNamePage === "servicios-page" ? "seleccionado" : null}
+      href="javascript:void(0)">Servicios</a
+    >
+    <a
+      class={classNamePage === "proyectos-page" ? "seleccionado" : null}
+      href="javascript:void(0)">Proyectos</a
+    >
+    <a
+      class={classNamePage === "contacto-page" ? "seleccionado" : null}
+      href="javascript:void(0)">Contacto</a
+    >
+  </nav>
+</header>

@@ -1,0 +1,49 @@
+.sidebar {
+  height: 100%;
+  width: 0;
+  max-width: 100%;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  background-color: var(--indigo-oscuro);
+  overflow-x: hidden;
+  padding-top: 10rem;
+  transition: width 0.5s;
+}
+.sidebar .closebtn {
+  height: 4rem;
+  width: 4rem;
+  border: 2px solid var(--negro);
+  border-radius: 50%;
+  filter: invert(100%);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+.sidebar a {
+  padding: 1rem 1rem 1rem 3rem;
+  text-decoration: none;
+  font-size: 25px;
+  color: var(--blanco);
+  display: block;
+  transition: background-color 0.3s;
+}
+.sidebar .seleccionado::after {
+  content: "";
+  display: block;
+  background-color: var(--secundario);
+  height: 0.5rem;
+  width: 60%;
+  margin-top: 0.2rem;
+}
+
+.sidebar a:hover {
+  background-color: var(--secundario);
+  color: var(--negro);
+}
+.sidebar .closebtn:hover {
+  background-color: var(--secundario);
+  filter: invert(0%);
+}

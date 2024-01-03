@@ -1,0 +1,51 @@
+---
+
+---
+
+<section id="zona-form-proyecto" class="contenedor sombra zona-form-proyecto">
+  <h2>Proyecto</h2>
+
+  <form id="formulario-proyecto">
+    <fieldset>
+      <!--<legend>&nbsp;Información Proyecto&nbsp;</legend>-->
+      <div class="campo">
+        <label for="titulo">Titulo</label>
+        <input
+          class="input-text"
+          type="text"
+          placeholder="Título proyecto"
+          id="titulo"
+          name="titulo"
+        />
+      </div>
+      <div class="campo">
+        <img />
+        <label for="imagen">Seleccione la imagen:</label>
+        <input
+          class="input-img"
+          type="file"
+          placeholder="Imagen proyecto"
+          id="imagen"
+          name="imagen"
+        />
+      </div>
+      <div class="campo">
+        <label for="fecha">Fecha del proyecto:</label>
+        <input class="input-text" type="date" id="fecha" name="fecha" />
+      </div>
+      <div class="campo">
+        <label for="descripcion">Descripcion:</label>
+        <textarea
+          class="input-text"
+          placeholder="Descripción del proyecto"
+          id="descripcion"
+          name="descripcion"></textarea>
+      </div>
+    </fieldset>
+    <div class="flex flex-end">
+      <button class="boton boton-primario w-sm-100" type="submit">Enviar</button
+      >
+    </div>
+  </form>
+  <div id="error-proyecto-admin" class="errores"></div>
+</section>
