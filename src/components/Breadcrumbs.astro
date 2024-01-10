@@ -11,13 +11,20 @@ const {
   nombrePaginaHija = "",
 } = Astro.props;
 const classLink = hrefPadre === "javascript:void(0)" ? "a-disabled" : null;
+const classImg = hrefPadre === "javascript:void(0)" ? "img-disabled" : null;
 const flecha = nombrePaginaHija.length ? ">" : "";
 ---
 
-<section class="breadcrumbs">
+<!--TODO: atenuar/cambiar el color del nombre/icono pagina padre cuando hay solo un elemento, para que quede claro que no se puede seleccionar-->
+<section id="breadcrumbs" class="breadcrumbs">
   <div class="breadcrumbs-movil">
     <a href={hrefPadre} class={classLink}
-      ><img id="up-icon" src={iconoUp.src} alt="icono subir directorio" /></a
+      ><img
+        id="up-icon"
+        class={classImg}
+        src={iconoUp.src}
+        alt="icono subir directorio"
+      /></a
     >
      &nbsp;&nbsp;{nombrePaginaHija}
   </div>

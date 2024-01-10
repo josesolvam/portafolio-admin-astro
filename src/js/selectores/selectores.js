@@ -1,5 +1,6 @@
 // Selectores navegacion
 export const body = document.querySelector("body");
+export const header = document.querySelector("header");
 export const menuMovil = document.querySelector("#menu-movil");
 export const navegacionPrincipal = document.querySelector(
   "#navegacion-principal",
@@ -17,8 +18,11 @@ export const tableProyectosAdmin = document.querySelector(
 export const contenedorProyectosAdmin = document.querySelector(
   "#contenedor-proyectos-admin",
 );
-export const errorProyectosAdmin = document.querySelector(
-  "#error-proyectos-admin",
+export const errorFetchProyectos = document.querySelector(
+  "#error-fetch-proyectos",
+);
+export const erroresAdminProyectos = document.querySelector(
+  "#errores-admin-proyectos",
 );
 //Sección admin-proyecto
 export const h2ZonaForm = document.querySelector("#zona-form-proyecto h2");
@@ -38,8 +42,24 @@ export const zonaFormFecha = document.querySelector(
 export const zonaFormDescrip = document.querySelector(
   "#formulario-proyecto #descripcion",
 );
-export const errorProyectoAdmin = document.querySelector(
-  "#error-proyecto-admin",
+export const errorFetchProyecto = document.querySelector(
+  "#error-fetch-proyecto",
 );
+export const erroresAdminProyecto = document.querySelector(
+  "#errores-admin-proyecto",
+);
+
 //Breadcrumbs
+export const breadcrumbs = document.querySelector("#breadcrumbs");
 export const breadcrumbsHijo1 = document.querySelector("#breadcrumbs-hijo1");
+
+//Login
+export const formularioLogin = document.querySelector("#formulario-login");
+export const emailLogin = document.querySelector("#formulario-login #email");
+export const passwordLogin = document.querySelector(
+  "#formulario-login #password",
+);
+export const erroresLogin = document.querySelector("#errores-login");
+
+//Logout
+export const iconoLogout = document.querySelector("#icono-logout");

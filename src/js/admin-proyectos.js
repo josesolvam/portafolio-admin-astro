@@ -1,18 +1,19 @@
 import {
   tableProyectosAdmin,
   contenedorProyectosAdmin,
-  errorProyectosAdmin,
-  zonaFormTitulo,
-  zonaFormDescrip,
-  zonaFormFecha,
+  errorFetchProyectos,
+  erroresAdminProyectos,
 } from "./selectores/selectores.js";
 import { URLPARAMS } from "./constantes/consts.js";
 const URL_IMAGENES = import.meta.env.PUBLIC_URL_IMAGENES;
 const URL_CLIENT = import.meta.env.PUBLIC_URL_CLIENT;
 import { fetchProyectos, deleteProyecto } from "./api/api.js";
+import { confirmarAccion, mostrarAlertas, checkAuth } from "./funcionalidades";
 import { MyError } from "./api/my-error.js";
 import iconoEditar from "../assets/img/ti-edit.svg";
 import iconoEliminar from "../assets/img/ti-trash.svg";
+
+checkAuth();
 
 document.addEventListener("DOMContentLoaded", function () {
   renderProyectos();
@@ -21,28 +22,24 @@ document.addEventListener("DOMContentLoaded", function () {
 async function renderProyectos() {
   try {
     const jsonData = await fetchProyectos();
-    // throw new MyError("error de prueba");
     mostrarProyectos(jsonData.resultado.proyectos);
   } catch (err) {
+    let arrayErrors;
     if (err instanceof MyError) {
-      errorProyectosAdmin.textContent = err.message;
+      arrayErrors = JSON.parse(err.message);
     } else {
-      console.log(err);
-      errorProyectosAdmin.textContent = "Error en la petición";
+      arrayErrors = ["Error"];
     }
+    mostrarAlertas("error", errorFetchProyectos, arrayErrors);
   }
 }
 
 function mostrarProyectos(proyectos) {
+  if (!proyectos.length) {
+    throw new MyError(JSON.stringify(["No hay registros"]));
+  }
   proyectos.forEach((proyecto) => {
-    const {
-      id,
-      slug,
-      titulo,
-      descripcion,
-      imagen,
-      fechaProyecto: fecha,
-    } = proyecto;
+    const { id, titulo, descripcion, imagen, fechaProyecto: fecha } = proyecto;
 
     const entradaProyectos = document.createElement("TR");
     entradaProyectos.classList.add("entrada-proyectos");
@@ -100,14 +97,24 @@ function mostrarProyectos(proyectos) {
 
 async function eliminarProyecto(id) {
   try {
-    const jsonData = await deleteProyecto(id);
-    console.log(jsonData);
-    // window.location.href = `${URL_CLIENT}/admin`;
+    const result = await confirmarAccion();
+    if (result.isConfirmed) {
+      const jsonData = await deleteProyecto(id);
+      // console.log(jsonData);
+      window.location.href = `${URL_CLIENT}/admin`;
+    }
   } catch (err) {
-    // if (err instanceof MyError) {
-    // } else {
-    // }
-    //TODO: pendiente renderizar el error
-    console.log(err);
+    let arrayErrors;
+    if (err instanceof MyError) {
+      arrayErrors = JSON.parse(err.message);
+    } else {
+      arrayErrors = ["Error"];
+    }
+    mostrarAlertas(
+      "error",
+      erroresAdminProyectos,
+      arrayErrors,
+      "alerta-error-form",
+    );
   }
 }

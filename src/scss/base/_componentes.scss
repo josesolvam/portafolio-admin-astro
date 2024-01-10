@@ -64,11 +64,13 @@
   line-height: 2.5rem;
 }
 .alerta-error-form {
+  margin: 0 auto 0.3rem;
   background-color: var(--danger);
   color: var(--danger-contrast);
   text-align: center;
   padding: 1rem;
   line-height: 2rem;
+  width: min(var(--tablet), 100%);
 }
 .fade-in {
   animation: fadeIn 0.5s ease-out forwards;

@@ -1,7 +1,4 @@
 ---
-import iconoHamburguesa from "../assets/img/ti-menu2.svg";
-import iconoEditar from "../assets/img/ti-edit.svg";
-import iconoEliminar from "../assets/img/ti-trash.svg";
 import { URLPARAMS } from "../js/constantes/consts";
 ---
 
@@ -14,6 +11,8 @@ import { URLPARAMS } from "../js/constantes/consts";
     >
   </div>
   <h3>Proyectos</h3>
+  <div id="error-fetch-proyectos" class="errores"></div>
+  <div id="errores-admin-proyectos"></div>
   <div id="table-proyectos-admin" class="table-wrapper">
     <table>
       <thead>
@@ -55,5 +54,4 @@ import { URLPARAMS } from "../js/constantes/consts";
       </tbody>
     </table>
   </div>
-  <div id="error-proyectos-admin" class="errores"></div>
 </section>

@@ -404,6 +404,10 @@ a {
   display: inline-block;
 }
 
+.swal2-popup {
+  font-size: 1.6rem;
+}
+
 .contenedor {
   /*max-width: var(--desktopXL);*/
   width: min(var(--desktopXL), 98%);
@@ -520,11 +524,13 @@ a {
 }
 
 .alerta-error-form {
+  margin: 0 auto 0.3rem;
   background-color: var(--danger);
   color: var(--danger-contrast);
   text-align: center;
   padding: 1rem;
   line-height: 2rem;
+  width: min(var(--tablet), 100%);
 }
 
 .fade-in {
@@ -575,6 +581,7 @@ a {
   pointer-events: none;
   cursor: default;
   text-decoration: none;
+  color: var(--gris);
 }
 
 /** Título **/
@@ -626,6 +633,7 @@ a {
   cursor: pointer;
   height: 4rem;
   width: 4rem;
+  min-width: 4rem;
   /*filter: invert(56%) sepia(49%) saturate(2426%) hue-rotate(45deg)*/
   /*  brightness(97%) contrast(105%);*/
   filter: invert(27%) sepia(55%) saturate(4251%) hue-rotate(334deg) brightness(102%) contrast(101%);
@@ -755,6 +763,10 @@ header {
   filter: invert(12%) sepia(31%) saturate(5525%) hue-rotate(283deg) brightness(140%) contrast(128%);
 }
 
+.breadcrumbs-movil .img-disabled {
+  filter: invert(47%) sepia(2%) saturate(0%) hue-rotate(54deg) brightness(98%) contrast(88%);
+}
+
 .breadcrumbs-normal {
   display: none;
   height: 4rem;
@@ -828,6 +840,39 @@ header {
 
 .footer {
   text-align: center;
+}
+
+.login-page .zona-login h2 {
+  margin-bottom: 6rem;
+}
+
+.login-page form {
+  margin: 0 auto 2rem;
+  width: min(var(--tablet), 100%);
+}
+
+.login-page form fieldset {
+  padding: 4rem;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+}
+
+.login-page form label {
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+}
+
+.login-page .campo {
+  margin-bottom: 2rem;
+}
+
+.login-page form .input-text {
+  padding: 1rem;
+  display: block;
+  width: 100%;
+  border: 1px solid var(--gris);
+  border-radius: 1rem;
 }
 
 .admin-page .zona-administracion h2 {

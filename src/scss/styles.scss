@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Grandstander&family=Lato:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap");
 @import "base/normalize";
-@import "base/mixins";
 @import "base/variables";
+@import "base/mixins";
 @import "base/globales";
 @import "base/componentes";
 @import "base/utilidades";
@@ -10,5 +10,6 @@
 @import "layout/sidebar";
 @import "layout/footer";
 //paginas
+@import "pages/login";
 @import "pages/admin";
 @import "pages/proyecto";

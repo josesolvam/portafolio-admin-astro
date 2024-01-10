@@ -7,7 +7,7 @@ export interface Props {
 const { classNamePage } = Astro.props;
 ---
 
-<header>
+<header id="header">
   <div id="menu-movil" class="menu-movil">
     <img
       id="menu-icon"
@@ -16,8 +16,9 @@ const { classNamePage } = Astro.props;
     />
   </div>
   <nav id="navegacion-principal" class="navegacion-principal">
-    <a class={classNamePage === "index-page" ? "seleccionado" : null} href="javascript:void(0)"
-      >Inicio</a
+    <a
+      class={classNamePage === "index-page" ? "seleccionado" : null}
+      href="javascript:void(0)">Inicio</a
     >
     <a
       class={classNamePage === "sobre-mi-page" ? "seleccionado" : null}

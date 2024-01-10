@@ -7,18 +7,23 @@ import {
   zonaFormInputImg,
   zonaFormFecha,
   zonaFormDescrip,
-  errorProyectoAdmin,
+  errorFetchProyecto,
+  erroresAdminProyecto,
+  errorFetchProyectos,
 } from "./selectores/selectores.js";
 import { URLPARAMS } from "./constantes/consts.js";
 const URL_IMAGENES = import.meta.env.PUBLIC_URL_IMAGENES;
 const URL_CLIENT = import.meta.env.PUBLIC_URL_CLIENT;
 import { MyError } from "./api/my-error.js";
 import { fetchProyecto, postProyecto, putProyecto } from "./api/api.js";
+import { checkAuth, mostrarAlertas } from "./funcionalidades";
 
 let id;
 let operation;
 let imgUpload;
 let imgBase64;
+
+checkAuth();
 
 document.addEventListener("DOMContentLoaded", function () {
   formularioProyecto.addEventListener("submit", postOrPutProyecto);
@@ -38,12 +43,13 @@ export async function renderProyecto() {
       mostrarProyectoEditado(jsonData.resultado.proyecto);
     }
   } catch (err) {
+    let arrayErrors;
     if (err instanceof MyError) {
-      errorProyectoAdmin.textContent = err.message;
+      arrayErrors = JSON.parse(err.message);
     } else {
-      console.log(err);
-      errorProyectoAdmin.textContent = "Error en la petición";
+      arrayErrors = ["Error"];
     }
+    mostrarAlertas("error", errorFetchProyecto, arrayErrors);
   }
 }
 
@@ -51,7 +57,7 @@ function checkUrl() {
   let urlParams = location.hash;
   urlParams = urlParams.slice(2);
   if (!urlParams) {
-    throw new MyError("Id del proyecto no especificado");
+    throw new MyError(JSON.stringify(["Id del proyecto no especificado"]));
   }
   let arrayParams = urlParams.split("/");
   if (arrayParams[arrayParams.length - 1] === "") {
@@ -60,16 +66,16 @@ function checkUrl() {
   switch (arrayParams[0]) {
     case URLPARAMS.EDITAR_PROYECTO:
       if (arrayParams.length !== 2) {
-        throw new MyError("Ruta no válida");
+        throw new MyError(JSON.stringify(["Ruta no válida"]));
       }
       break;
     case URLPARAMS.NUEVO_PROYECTO:
       if (arrayParams.length !== 1) {
-        throw new MyError("Ruta no válida");
+        throw new MyError(JSON.stringify(["Ruta no válida"]));
       }
       break;
     default:
-      throw new MyError("Operación no válida");
+      throw new MyError(JSON.stringify(["Operación no válida"]));
   }
   // return { operation: arrayParams[0], id: arrayParams[1] };
   operation = arrayParams[0];
@@ -79,7 +85,7 @@ function checkUrl() {
 function mostrarProyectoNuevo() {
   breadcrumbsHijo1.textContent = "Nuevo proyecto";
   h2ZonaForm.textContent = "Nuevo proyecto";
-  let urlImg = `${URL_CLIENT}/img/no-img.png`;
+  const urlImg = `${URL_CLIENT}/img/no-img.png`;
   const tituloImg = "no-imagen";
   mostrarImg(urlImg, tituloImg);
   formularioProyecto.style.display = "block";
@@ -91,11 +97,6 @@ async function mostrarProyectoEditado(proyecto) {
   let urlImg = `${URL_CLIENT}/img/no-img.png`;
   if (imagen.length) {
     urlImg = `${URL_IMAGENES}/${imagen}`;
-    // const formData = new FormData();
-    // formData.append("imagen", imgUpload);
-    // for (const pair of formData.entries()) {
-    //   console.log(pair);
-    // }
   }
   const tituloImg = `imagen de ${titulo}`;
   mostrarImg(urlImg, tituloImg);
@@ -133,8 +134,6 @@ function selectImgProyecto(fileSelected) {
     imgUpload = fileSelected;
     zonaFormImg.setAttribute("src", result);
   };
-  // reader.onloadend = () => {
-  // };
 }
 
 async function postOrPutProyecto(ev) {
@@ -163,31 +162,41 @@ async function postOrPutProyecto(ev) {
 async function nuevoProyecto(proyecto) {
   try {
     const jsonData = await postProyecto(proyecto);
-    console.log(jsonData);
+    // console.log(jsonData);
     window.location.href = `${URL_CLIENT}/admin`;
   } catch (err) {
-    // if (err instanceof MyError) {
-    // } else {
-    // }
-    //TODO: pendiente renderizar el error
-    console.log(err);
+    let arrayErrors;
+    if (err instanceof MyError) {
+      arrayErrors = JSON.parse(err.message);
+    } else {
+      arrayErrors = ["Error"];
+    }
+    mostrarAlertas(
+      "error",
+      erroresAdminProyecto,
+      arrayErrors,
+      "alerta-error-form",
+    );
   }
 }
 
 async function editarProyecto(proyecto) {
-  // for (const pair of proyecto.entries()) {
-  //   console.log(pair);
-  // }
   try {
     const jsonData = await putProyecto(id, proyecto);
-    console.log(jsonData);
+    // console.log(jsonData);
     window.location.href = `${URL_CLIENT}/admin`;
   } catch (err) {
-    //TODO: falla mensaje error cuando se sube imagen en proyecto sin imagen previa, pero la imagen se actualiza
-    // if (err instanceof MyError) {
-    // } else {
-    // }
-    //TODO: pendiente renderizar el error
-    console.log(err);
+    let arrayErrors;
+    if (err instanceof MyError) {
+      arrayErrors = JSON.parse(err.message);
+    } else {
+      arrayErrors = ["Error"];
+    }
+    mostrarAlertas(
+      "error",
+      erroresAdminProyecto,
+      arrayErrors,
+      "alerta-error-form",
+    );
   }
 }

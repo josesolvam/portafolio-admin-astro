@@ -43,6 +43,7 @@
   cursor: pointer;
   height: 4rem;
   width: 4rem;
+  min-width: 4rem;
   /*filter: invert(56%) sepia(49%) saturate(2426%) hue-rotate(45deg)*/
   /*  brightness(97%) contrast(105%);*/
   filter: invert(27%) sepia(55%) saturate(4251%) hue-rotate(334deg)
@@ -161,6 +162,10 @@ header {
   /*  brightness(88%) contrast(145%);*/
   filter: invert(12%) sepia(31%) saturate(5525%) hue-rotate(283deg)
     brightness(140%) contrast(128%);
+}
+.breadcrumbs-movil .img-disabled {
+  filter: invert(47%) sepia(2%) saturate(0%) hue-rotate(54deg) brightness(98%) contrast(88%);
+
 }
 .breadcrumbs-normal {
   display: none;
